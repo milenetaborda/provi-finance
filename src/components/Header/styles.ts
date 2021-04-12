@@ -28,7 +28,7 @@ export const Container = styled.div`
 
       :hover {
         filter: brightness(0.9);
-      }
-    }
-  }
+      };
+    };
+  };
 `;
