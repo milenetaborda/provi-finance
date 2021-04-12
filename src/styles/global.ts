@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiesed;
   }
 
-  border, input, button {
+  body, input, button {
     font-family: 'Poppins', sans-serif;
   }
   
