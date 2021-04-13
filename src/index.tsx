@@ -3,25 +3,31 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createServer } from 'miragejs';
+import { createServer, Model } from 'miragejs';
 
 createServer({
+  models: {
+    transaction: Model
+  },
+  
+
   routes() {
     this.namespace = 'api';
 
     this.get('/transactions', () => {
-      return [
-        {
-          id: 1,
-          title: 'Transaction 1',
-          amount: 600,
-          type: 'deposit',
-          category: 'Casa',
-          createdAt: new Date()
-        }
-      ]
+      return this.schema.all('transaction');
+    });
+
+    this.post('/transactions', (schema, request) => {
+      const data = JSON.parse(request.requestBody);
+
+      return schema.create('transaction', data);
     })
-  }
+  },
+
+  seeds(server) {
+    server.create("transaction", { id: '1', title: 'Aluguel', category: 'Casa', amount: 200, type: 'deposit', createdAt: new Date() })
+  },
 });
 
 ReactDOM.render(
