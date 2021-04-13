@@ -10,6 +10,20 @@ createServer({
     transaction: Model
   },
   
+  seeds(server) {
+    server.db.loadData({
+      transactions: [
+        { 
+          id: 1, 
+          title: 'Aluguel', 
+          category: 'Casa', 
+          amount: 200, 
+          type: 'deposit', 
+          createdAt: new Date() 
+        }
+      ],
+    });
+  }, 
 
   routes() {
     this.namespace = 'api';
@@ -23,10 +37,6 @@ createServer({
 
       return schema.create('transaction', data);
     })
-  },
-
-  seeds(server) {
-    server.create("transaction", { id: '1', title: 'Aluguel', category: 'Casa', amount: 200, type: 'deposit', createdAt: new Date() })
   },
 });
 
