@@ -8,8 +8,23 @@ import { Container } from "./styles";
 
 export function Summary() {
   const {transactions} = useContext(TransactionsContext);
-  console.log(transactions);
+  
+  let deposit = 0;
+  let withdrawal = 0;
+  let total = 0;
 
+  transactions.map(transaction => {
+    if(transaction.type === 'deposit') {
+     deposit +=transaction.amount
+     total += transaction.amount;
+    } else {
+      withdrawal +=transaction.amount;
+      total -= transaction.amount;
+    }
+
+    return {deposit, total, withdrawal}
+  });
+ 
   return (
     <Container>
       <div>
@@ -17,21 +32,36 @@ export function Summary() {
           <p>Entradas</p>
           <img src={incomeIcon} alt="Entradas"/>
         </header>
-        <strong>R$2000,00</strong>
+        <strong> 
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(deposit)}
+        </strong>
       </div>
       <div>
         <header>
           <p>Saídas</p>
           <img src={outcomeIcon} alt="Saídas"/>
         </header>
-        <strong>- R$200,00</strong>
+        <strong>-  
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(withdrawal)}
+          </strong>
       </div>
       <div>
         <header>
           <p>Total</p>
           <img src={totalIcon} alt="Total"/>
         </header>
-        <strong>R$2000,00</strong>
+        <strong> 
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(total)}
+        </strong>
       </div>
     </Container>
   )
