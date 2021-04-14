@@ -32,13 +32,11 @@ export const Container = styled.main`
       font-weight: 500;
 
           
-      @media(max-width: 650px) {
-        font-size: 1.6rem;
-      }
-      @media(max-width: 560px) {
+      @media(max-width: 750px) {
         font-size: 1.2rem;
       }
-      @media(max-width: 475px) {
+     
+      @media(max-width: 500px) {
         font-size: 0.8rem;
       }
     }
