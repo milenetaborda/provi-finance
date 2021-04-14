@@ -29,6 +29,10 @@ export const Container = styled.div`
       :hover {
         filter: brightness(0.9);
       };
+
+      @media(max-width: 495px) {
+        font-size: 0.7rem;
+      }
     };
   };
 `;

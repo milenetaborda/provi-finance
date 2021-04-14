@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 4rem;
 
+  @media(max-width: 495px) {
+    overflow-x: auto;
+  }
+
   table {
     width: 100%;
     border-spacing: 0 0.5rem;
@@ -13,6 +17,10 @@ export const Container = styled.div`
       padding: 1rem 2rem;
       text-align: left;
       line-height: 1.5rem;
+
+      @media(max-width: 495px) {
+        font-size: 1rem;
+      }
     }
 
     td {
@@ -32,6 +40,10 @@ export const Container = styled.div`
 
       &.withdrawal{
         color: #dc143c;
+      }
+
+      @media(max-width: 495px) {
+        font-size: 0.8rem;
       }
     }
   }
