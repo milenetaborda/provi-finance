@@ -7,7 +7,7 @@ O Provi Finance é um site onde você pode gerenciar suas finanças, permitindo 
 - Typescript
 - Hooks
 - Context
-- MirageJS
+- Mirage
 - React-Modal
 - Styled Components
 - Axios
